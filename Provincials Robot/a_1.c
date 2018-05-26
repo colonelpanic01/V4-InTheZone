@@ -28,12 +28,10 @@ task main(){
 			LIFT_ENC = 0;
 			_chainbar(10);
 			_lift(10);
-			//_mobileGoal(50);
 
 			Drive_enc(1210, 127);
 			_mobileGoal(-100);
 			wait1Msec(500);
-			//_mobileGoal(0);
 
 			Drive_enc(380, 127);
 			_lift(-100);
