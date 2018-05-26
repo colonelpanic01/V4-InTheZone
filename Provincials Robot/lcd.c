@@ -15,7 +15,7 @@ task main(){
 	while(1){
 		displayLCDString(0,1, "autonomous");
 		displayLCDNumber(0, 12, lcd_toggle, 2);
-		//displayLCDCenteredString(1, "Select auton");
+
 		if(lcd_toggle > 0 && lcd_toggle < 99){
 			clearLCDLine(1);
 			displayLCDNumber(1, 8, 1);
@@ -23,7 +23,7 @@ task main(){
 			clearLCDLine(1);
 			displayLCDNumber(1, 8, 2);
 		}else{
-			displayLCDCenteredString(1, "Select auton");
+			displayLCDCenteredString(1, "Select auton mode");
 		}
 
 	}
