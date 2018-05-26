@@ -30,10 +30,12 @@ task chainBar_PID(){
 	c_PID_INIT();
 	while(true){
 		c_PID.error = c_PID.target - chainBarPot;
-		if(abs(c_PID.error) < 100)
+		if(abs(c_PID.error) < 100){
 			c_PID.integral = 1;
-		else
+		}
+		else{
 			c_PID.integral = 0;
+		}
 
 		if(c_PID.error == 0){	c_PID.integral = 0;	}
 
@@ -43,3 +45,4 @@ task chainBar_PID(){
 		_chainbar((c_PID.error * c_PID.kP) + (c_PID.integral * c_PID.kI) + (c_PID.derivative* c_PID.kD));
 	}
 }
+
