@@ -52,11 +52,12 @@ task drivebase_PID() {
 
 		drivebase.error = drivebase.target - abs(left_enc);
 
-		if(abs(drivebase.error)<250)
+		if(abs(drivebase.error)<250){
 			drivebase.integral += drivebase.error;
-		else
+		}
+		else{
 			drivebase.integral = 0;
-
+		}
 		if(drivebase.error == 0) { drivebase.integral = 0; }
 
 		drivebase.derivative = drivebase.error - drivebase.last_error;
