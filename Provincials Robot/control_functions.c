@@ -17,16 +17,14 @@
 #include "Subsystems/simpleSensors.h"
 
 void _chainbar(int speed){
-	//motor[RIGHT_C_BAR] = speed;
-	//motor[LEFT_C_B] = speed;
 	motor[Chainbar] = speed;
 }
 
 void drive(int leftDrive, int rightDrive){
 	motor[RIGHT_DRIVE_B] = rightDrive;
-		motor[RIGHT_DRIVE_F] = rightDrive;
-		motor[LEFT_DRIVE_B] = leftDrive;
-		motor[LEFT_DRIVE_F] = leftDrive;
+	motor[RIGHT_DRIVE_F] = rightDrive;
+	motor[LEFT_DRIVE_B] = leftDrive;
+	motor[LEFT_DRIVE_F] = leftDrive;
 }
 
 void _chassis(int leftDrive, int rightDrive){
@@ -92,9 +90,9 @@ void Lift_encoder(int height, int speed){
 
 void gyro_init(){
 	D_gyro = sensorNone;
-  wait1Msec(200);
-  D_gyro = sensorGyro;
-  wait1Msec(100);
+	wait1Msec(200);
+	D_gyro = sensorGyro;
+	wait1Msec(100);
 }
 
 void chassis_init(){
@@ -106,21 +104,20 @@ void chassis_init(){
 
 void _drivegyro(int angle, int speed){
 	speed*=-1;
-  while((D_gyro) < angle - 100){
+	while((D_gyro) < angle - 100){
 		drive(-speed, speed);
+}
+//Brief brake to eliminate some drift
+drive(45, -45);
+wait1Msec(100);
 
-  }
-  //Brief brake to eliminate some drift
-	drive(45, -45);
-  wait1Msec(100);
-  /*Second while loop to move more slowly toward the goal
-  while((D_gyro) != angle){
+while((D_gyro) != angle){
     if((D_gyro) > angle){
 			_chassis(40, -40);
     }else{
       _chassis(-40, 40);
     }
-  }*/
+  }
   //Stop
   drive(0,0);
   wait1Msec(100);
@@ -128,21 +125,21 @@ void _drivegyro(int angle, int speed){
 
 void _drivegyro_neg(int angle, int speed){
 	while((D_gyro) > angle - 100){
-    //...Continue turning
-    drive(speed, -speed);
-  }
-  //Brief brake to eliminate some drift
-  drive(-45, 45);
-  wait1Msec(100);
-  /*Second while loop to move more slowly toward the goal
-  while((D_gyro) != angle){
-    if((D_gyro) < angle){
-      _chassis(-40, 40);
-    }else{
-      _chassis(40, -40);
-    }
-  }
-  //Stop*/
-  drive(0,0);
-  wait1Msec(100);
+		//...Continue turning
+		drive(speed, -speed);
+  	}
+	//Brief brake to eliminate some drift
+	drive(-45, 45);wait1Msec(100);
+	// Second while loop to move more slowly toward the goal
+	while((D_gyro) != angle){
+		if((D_gyro) < angle){
+			_chassis(-40, 40);
+		}
+		else{
+			_chassis(40, -40);
+		}
+	}
+  	//Stop
+	drive(0,0);
+	wait1Msec(100);
 }
