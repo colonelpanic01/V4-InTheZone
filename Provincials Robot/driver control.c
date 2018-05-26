@@ -17,37 +17,6 @@
 //#include "Subsystems/chainBar.c"
 #include "control_functions.c"
 
-/*void _chassis(int leftDrive, int rightDrive){
-	if(vexRt[Btn6U] == true){
-		motor[RIGHT_DRIVE_B] = -rightDrive;
-		motor[RIGHT_DRIVE_F] = -rightDrive;
-		motor[LEFT_DRIVE_B] = -leftDrive;
-		motor[LEFT_DRIVE_F] = -leftDrive;
-	}else{
-		motor[RIGHT_DRIVE_B] = rightDrive;
-		motor[RIGHT_DRIVE_F] = rightDrive;
-		motor[LEFT_DRIVE_B] = leftDrive;
-		motor[LEFT_DRIVE_F] = leftDrive;
-	}
-}
-
-/*void _chainbar(int speed){
-	motor[RIGHT_C_BAR] = speed;
-	motor[LEFT_C_B] = speed;
-}
-
-void _mobileGoal(int speed){
-	motor[MOBILE_GOAL_INTAKE] = speed;
-}
-
-void _lift(int speed){
-	motor[RIGHT_LIFT] = -speed;
-	motor[LEFT_LIFT] = -speed;
-}
-
-void _intake(int speed){
-	motor[ROLLERS] = speed;
-}*/
 task main(){
 	//startTask(chainBar_PID);
 	//int chainBar_lastPoint;
