@@ -1,5 +1,4 @@
-# Communicate from server to raspberry pi
-
+# Communicating from server to raspberry pi
 import socket
 import sys
 import queue
